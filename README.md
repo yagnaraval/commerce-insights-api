@@ -1,3 +1,4 @@
+# Commerce Insights API
 > **Author & Attribution**
 > **Name:** Yagna Raval · **LinkedIn:** https://www.linkedin.com/in/yagna-raval/ · **GitHub:** https://github.com/yagnaraval
 
@@ -98,8 +99,6 @@ ChatGPT (GPT-6) was used as a development and review assistant.
 All suggestions were reviewed against the actual requirements before being incorporated.
 
 One improvement retained after review was the use of a conditional database stock update instead of relying exclusively on an application-level stock check, providing stronger protection against concurrent purchases.
-
-One important design decision I retained was using a conditional database stock update rather than relying solely on application-level stock checks, helping protect inventory when concurrent purchases occur.
 
 ## What I'd improve
 - **10 M history rows:** the importer's `seen` set is O(n) memory – move to a staging table with a
