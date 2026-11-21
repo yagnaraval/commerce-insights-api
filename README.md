@@ -24,18 +24,26 @@ The application provides correct, idempotent purchase recording, prevents partia
 
 ## Architecture
 
-```text
-HTTP ──► views.py (parse/shape JSON) ──► services/purchases.py ──► models (SQLite)
-                  │                              (transactional rules)
-                  │
-                  ├──► history.py (filter / paginate / GROUP BY stats)
-                  │
-CLI ──► import_history ──► services/importer.py ──► validation.py
-CLI ──► train_return_model ──► ml/training.py ──► model artifacts
-HTTP ──► ml/predict.py ──► ml/registry.py (load once, reload on file change)
-                         └──► ml/features.py (shared by train + serve)
-```
+```mermaid
+flowchart TD
+    A[HTTP Requests] --> B[views.py]
+    B --> C[services/purchases.py]
+    C --> D[(SQLite Models)]
 
+    B --> E[history.py]
+    E --> D
+
+    F[CLI: import_history] --> G[services/importer.py]
+    G --> H[validation.py]
+    G --> D
+
+    I[CLI: train_return_model] --> J[ml/training.py]
+    J --> K[Model Artifacts]
+
+    L[HTTP: Prediction] --> M[ml/predict.py]
+    M --> N[ml/registry.py]
+    M --> O[ml/features.py]
+    J --> O
 **Application layers:**
 
 - `views.py`: Thin API views that parse requests and shape responses.
