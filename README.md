@@ -4,9 +4,10 @@
 >
 > **Name:** Yagna Raval
 >
-> **LinkedIn:** [https://www.linkedin.com/in/yagna-raval/](https://www.linkedin.com/in/yagna-raval/)
+> **LinkedIn:** [Yagna Raval](https://www.linkedin.com/in/yagna-raval/)
 >
-> **GitHub:** [https://github.com/yagnaraval](https://github.com/yagnaraval)
+> **GitHub:** [yagnaraval](https://github.com/yagnaraval)
+> 
 ## Purchase Recorder + Return-Risk Model
 
 A Django REST Framework service that:
