@@ -22,28 +22,31 @@ A small shop sells two items with limited stock and one add-on. A payment provid
 
 The application provides correct, idempotent purchase recording, prevents partial writes, and supports repeatable historical imports that feed reporting and a simple return-risk prediction model.
 
+
 ## Architecture
 
 ```mermaid
 flowchart TD
-    A[HTTP Requests] --> B[views.py]
-    B --> C[services/purchases.py]
-    C --> D[(SQLite Models)]
+    A["HTTP Requests"] --> B["views.py"]
+    B --> C["services/purchases.py"]
+    C --> D[("SQLite Models")]
 
-    B --> E[history.py]
+    B --> E["history.py"]
     E --> D
 
-    F[CLI: import_history] --> G[services/importer.py]
-    G --> H[validation.py]
+    F["CLI: import_history"] --> G["services/importer.py"]
+    G --> H["validation.py"]
     G --> D
 
-    I[CLI: train_return_model] --> J[ml/training.py]
-    J --> K[Model Artifacts]
+    I["CLI: train_return_model"] --> J["ml/training.py"]
+    J --> K["Model Artifacts"]
 
-    L[HTTP: Prediction] --> M[ml/predict.py]
-    M --> N[ml/registry.py]
-    M --> O[ml/features.py]
+    L["HTTP: Prediction"] --> M["ml/predict.py"]
+    M --> N["ml/registry.py"]
+    M --> O["ml/features.py"]
     J --> O
+```
+
 **Application layers:**
 
 - `views.py`: Thin API views that parse requests and shape responses.
