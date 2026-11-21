@@ -7,7 +7,6 @@
 > **LinkedIn:** [Yagna Raval](https://www.linkedin.com/in/yagna-raval/)
 >
 > **GitHub:** [yagnaraval](https://github.com/yagnaraval)
-> 
 ## Purchase Recorder + Return-Risk Model
 
 A Django REST Framework service that:
