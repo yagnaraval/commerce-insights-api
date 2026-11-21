@@ -1,0 +1,12 @@
+__pycache__/
+*.pyc
+.venv/
+.venv-*/
+venv/
+.env
+db.sqlite3
+models/*.joblib
+models/metrics.json
+.pytest_cache/
+.idea/
+.vscode/
